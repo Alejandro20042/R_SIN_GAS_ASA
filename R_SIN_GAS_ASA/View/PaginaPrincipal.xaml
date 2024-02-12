@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="R_SIN_GAS_ASA.View.PaginaPrincipal">
+
+    <StackLayout>
+        <Grid>
+            <Label Text="Opciones" FontSize="20" TextColor="Black"/>
+            <RadioButton Content="IMC" Grid.Column="1" Grid.Row="1" IsChecked="{Binding IMCSeleccionar}" />
+            <RadioButton Content="FNC" Grid.Column="0" Grid.Row="1" IsChecked="{Binding FCNSeleccionar}"/>
+        </Grid>
+
+        <StackLayout IsVisible="{Binding IMCSeleccionar}" >
+            <Label Text="Proporciona los Datos" FontSize="20" TextColor="Black"/>
+
+            <Entry Placeholder="Peso" Text="{Binding Peso}"/>
+            <Entry Placeholder="Altura" Text="{Binding Altura}"/>
+            <Label Text="{Binding Texto}" FontSize="18" />
+
+            <Button Text="Calcular" Command="{Binding ProcesoCalcularCommand}"/>
+
+
+        </StackLayout>
+
+        <StackLayout IsVisible="{Binding Activador}">
+            <Label Text="Proporciona los Datos" FontSize="25" TextColor="Black"/>
+
+
+            <Label Text="Cuenta tus latidos por 15 segundos" />
+            <Entry Placeholder="Latidos" Text="{Binding LatidosSegundos}"/>
+            <Label Text="{Binding FrecuenciaResultado}"/>
+
+            <Button Text="Calcular" Command="{Binding ProcesoCalcularCommand}"/>
+        </StackLayout>
+
+
+        <Image Source="{Binding Imagen}"/>
+
+    </StackLayout>
+    
+</ContentPage>
